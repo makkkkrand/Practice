@@ -1,11 +1,11 @@
-\# Interview Practice - Java \(Spring Boot, Maven\)
+# Interview Practice - Java \(Spring Boot, Maven\)
 
 ## Project overview
-This repository contains small, focused Java examples for interview practice: algorithmic problems (string and two-pointer), data-structure demos, concurrency, stream API usage, and common design pattern implementations. A minimal Spring Boot entry point is included for completeness.
+This repository contains small, focused Java examples for interview practice: algorithmic problems, data-structure demos, concurrency, Stream API usage, and common design pattern implementations. A minimal Spring Boot entry point is included.
 
-\## Build & run
+## Build \& run
 1. Prerequisites:
-    - Java JDK 11+.
+    - Java JDK 11\+.
     - Maven.
     - IntelliJ IDEA (project developed on Windows).
 
@@ -17,79 +17,67 @@ This repository contains small, focused Java examples for interview practice: al
     - From command line (jar): `java -jar target/<artifact>-<version>.jar`
     - To run individual examples: open the class in the IDE and run its `main` method.
 
-\## Project layout (important files / packages)
-- `src/main/java/com/practice/PracticeApplication.java`  
-  Spring Boot application entry point \(minimal\).
+## Project layout (important files / packages) with one-line explanations
+- `src/main/java/com/practice/PracticeApplication.java` — [`PracticeApplication.java`](src/main/java/com/practice/PracticeApplication.java) \- Spring Boot entry point that boots the application.
 
-- `src/main/java/com/practice/core/`  
-  Core algorithm examples.
-    - `stringOpsProblem/`:
-        - `Anagram.java` — check if two strings are anagrams (frequency counting or sorting).
-        - `LongestSubStringLengthWithoutDuplicate.java` — sliding\-window to find longest substring with unique characters.
-        - `RemoveDuplicate.java` — remove duplicate characters from a string \(approaches using set or two-pointer\).
-        - `ReverseString.java` — reverse string implementations (iterative and/or recursive).
-        - `StringCoreExamples.java` — runner demonstrating the string utilities.
-    - `twoPointerProblem/`:
-        - `ColorSort.java` — Dutch National Flag problem implementation (three\-way partitioning).
-        - `MaxWaterInContainer.java` — two-pointer approach to compute max area between lines.
-        - `Pair.java` — simple pair utility used by some examples.
-        - `ThreeSum.java` — find triplets that sum to zero (two-pointer after sorting).
+- Core algorithm examples (`src/main/java/com/practice/core/`):
+    - String algorithms (`src/main/java/com/practice/core/stringOpsProblem/`):
+        - [`Anagram.java`](src/main/java/com/practice/core/stringOpsProblem/Anagram.java) \- checks if two strings are anagrams using frequency or sorting.
+        - [`LongestSubStringLengthWithoutDuplicate.java`](src/main/java/com/practice/core/stringOpsProblem/LongestSubStringLengthWithoutDuplicate.java) \- sliding‑window to compute longest substring without repeating characters.
+        - [`RemoveDuplicate.java`](src/main/java/com/practice/core/stringOpsProblem/RemoveDuplicate.java) \- removes duplicate characters from a string using set/two‑pointer approaches.
+        - [`ReverseString.java`](src/main/java/com/practice/core/stringOpsProblem/ReverseString.java) \- demonstrates iterative and/or recursive string reversal.
+        - [`StringCoreExamples.java`](src/main/java/com/practice/core/stringOpsProblem/StringCoreExamples.java) \- runnable demo that exercises the string utilities.
+    - Two‑pointer algorithms (`src/main/java/com/practice/core/twoPointerProblem/`):
+        - [`ColorSort.java`](src/main/java/com/practice/core/twoPointerProblem/ColorSort.java) \- Dutch National Flag implementation to sort colors in one pass.
+        - [`MaxWaterInContainer.java`](src/main/java/com/practice/core/twoPointerProblem/MaxWaterInContainer.java) \- two‑pointer solution to find maximum water container area.
+        - [`Pair.java`](src/main/java/com/practice/core/twoPointerProblem/Pair.java) \- simple generic pair utility used by examples.
+        - [`ThreeSum.java`](src/main/java/com/practice/core/twoPointerProblem/ThreeSum.java) \- finds triplets that sum to zero using sorting and two pointers.
 
-- `src/main/java/com/practice/dataStructure/`
-    - `BlockingQueueExample.java` — producer/consumer demo using `BlockingQueue`.
-    - `PriorityQueueExample.java` — usage of Java `PriorityQueue` for ordering.
+- Data structures (`src/main/java/com/practice/dataStructure/`):
+    - [`BlockingQueueExample.java`](src/main/java/com/practice/dataStructure/BlockingQueueExample.java) \- producer/consumer demo using `BlockingQueue` for safe handoff.
+    - [`PriorityQueueExample.java`](src/main/java/com/practice/dataStructure/PriorityQueueExample.java) \- demonstrates `PriorityQueue` ordering and custom comparators.
 
-- `src/main/java/com/practice/designPattern/`
-    - `behavioural/iteratorPattern/`
-        - `IteratorDemo.java`, `Container.java`, `Iterator.java`, `NameRepository.java` — simple custom iterator example showing traversal abstraction.
-    - `behavioural/observerPattern/`
-        - `ObserverPatternExample.java`, `Observer.java`, `ConcreteObserver.java`, `Register.java`, `ConcreteRegister.java`, `Publish.java` — classic observer/publisher pattern \(register observers and notify on change\).
-    - `behavioural/strategyPattern/`
-        - `PaymentStrategy.java`, `CreditCardPayment.java`, `UpiPayment.java`, `PaymentContext.java`, `StrategyDemo.java` — strategy pattern for payment methods.
-    - `creational/`
-        - `builderPattern/` — `BuilderPattern.java`, `BuilderPatternExample.java` — fluent builder usage.
-        - `factoryPattern/` — `FactoryDesignPatternExample.java`, `Vehicle.java`, `TwoWheeler.java`, `FourWheeler.java`, `Client.java` — factory method/simple factory.
-        - `prototypePattern/` — `PrototypePatternExample.java`, `PrototypeInterface.java`, `ConcretePrototype.java` — object cloning demonstration.
-        - `singletonPattern/` — `SingletonPattern.java`, `SingletonClass.java` — singleton implementations.
-    - `structural/adapterPattern/` — adapter example bridging `OldInterface` to new clients.
-    - `structural/proxyPattern/` — proxy examples plus request/response DTOs.
+- Design patterns (`src/main/java/com/practice/designPattern/`):
+    - Behavioural:
+        - Iterator: [`IteratorDemo.java`](src/main/java/com/practice/designPattern/behavioural/iteratorPattern/IteratorDemo.java), [`Container.java`](src/main/java/com/practice/designPattern/behavioural/iteratorPattern/Container.java) \- custom iterator example showing traversal abstraction.
+        - Observer: [`ObserverPatternExample.java`](src/main/java/com/practice/designPattern/behavioural/observerPattern/ObserverPatternExample.java) \- publisher/subscriber example demonstrating notify/subscribe.
+        - Strategy: [`StrategyDemo.java`](src/main/java/com/practice/designPattern/behavioural/strategyPattern/StrategyDemo.java), [`PaymentStrategy.java`](src/main/java/com/practice/designPattern/behavioural/strategyPattern/PaymentStrategy.java) \- runtime selection of payment strategies without changing client code.
+    - Creational:
+        - Builder: [`BuilderPatternExample.java`](src/main/java/com/practice/designPattern/creational/builderPattern/BuilderPatternExample.java) \- fluent builder usage for constructing complex objects.
+        - Factory: [`FactoryDesignPatternExample.java`](src/main/java/com/practice/designPattern/creational/factoryPattern/FactoryDesignPatternExample.java) \- simple factory producing `Vehicle` implementations.
+        - Prototype: [`PrototypePatternExample.java`](src/main/java/com/practice/designPattern/creational/prototypePattern/PrototypePatternExample.java) \- demonstrates cloning via prototype interface.
+        - Singleton: [`SingletonPattern.java`](src/main/java/com/practice/designPattern/creational/singletonPattern/SingletonPattern.java) \- singleton implementation examples and usage.
+    - Structural:
+        - Adapter: [`AdapterPatternExample.java`](src/main/java/com/practice/designPattern/structural/adapterPattern/AdapterPatternExample.java) \- adapts an `OldInterface` to new client expectations.
+        - Proxy: [`ProxyPatternExample.java`](src/main/java/com/practice/designPattern/structural/proxyPattern/ProxyPatternExample.java) \- proxy layer demonstrating access control or delegation.
 
-- `src/main/java/com/practice/dto/`
-    - `Employee.java` — sample DTO used in examples/tests.
+- DTOs and misc:
+    - [`Employee.java`](src/main/java/com/practice/dto/Employee.java) \- sample data transfer object used in demos.
+    - [`FirstIndexOfSubArray.java`](src/main/java/com/practice/random/FirstIndexOfSubArray.java) \- finds first occurrence index of a subarray in an array.
+    - [`StreamPractice.java`](src/main/java/com/practice/stream/StreamPractice.java) \- examples of Stream API operations: map, filter, collect, grouping.
+    - Threading:
+        - [`ThreadExample.java`](src/main/java/com/practice/thread/ThreadExample.java) \- basic thread creation and coordination examples.
+        - [`CompletableFuteureExample.java`](src/main/java/com/practice/thread/CompletableFuteureExample.java) \- `CompletableFuture` chaining and async composition.
+    - Utilities:
+        - [`Constants.java`](src/main/java/com/practice/utils/Constants.java) \- shared constant values used across examples.
+    - Misc:
+        - [`ImmutableExample.java`](src/main/java/com/practice/core/ImmutableExample.java) \- demonstrates building immutable objects and safe sharing.
 
-- `src/main/java/com/practice/random/`
-    - `FirstIndexOfSubArray.java` — example problem for subarray search.
+## Key concepts demonstrated
+- Sliding window: [`LongestSubStringLengthWithoutDuplicate.java`](src/main/java/com/practice/core/stringOpsProblem/LongestSubStringLengthWithoutDuplicate.java) \- efficient O\(n\) window expansion/contraction.
+- Two‑pointer technique: [`MaxWaterInContainer.java`](src/main/java/com/practice/core/twoPointerProblem/MaxWaterInContainer.java), [`ThreeSum.java`](src/main/java/com/practice/core/twoPointerProblem/ThreeSum.java) \- sorting plus two pointers to reduce search complexity.
+- Concurrency: [`BlockingQueueExample.java`](src/main/java/com/practice/dataStructure/BlockingQueueExample.java), [`CompletableFuteureExample.java`](src/main/java/com/practice/thread/CompletableFuteureExample.java) \- producer/consumer and async composition patterns.
+- Design patterns: see files under `src/main/java/com/practice/designPattern/` for small, self‑contained demos.
 
-- `src/main/java/com/practice/stream/`
-    - `StreamPractice.java` — demonstrations of Stream API \(map/filter/collect/grouping\).
+## Quick run tips
+- Run any example in IntelliJ: open the file (for example `src/main/java/com/practice/core/stringOpsProblem/StringCoreExamples.java`) and click Run.
+- Run a single class from Maven: `mvn -Dexec.mainClass="com.practice.core.stringOpsProblem.StringCoreExamples" exec:java`
+- Run Spring Boot app: `mvn spring-boot:run` or run `src/main/java/com/practice/PracticeApplication.java` from IDE.
 
-- `src/main/java/com/practice/thread/`
-    - `ThreadExample.java` — thread creation and coordination.
-    - `CompletableFuteureExample.java` — `CompletableFuture` usage \(async composition\).
+## Suggestions for extending repository
+- Add unit tests under `src/test/java` (JUnit 5).
+- Add example inputs/outputs and complexity notes near algorithm classes.
+- Convert selected demos into reusable libraries with tests.
 
-- `src/main/java/com/practice/utils/`
-    - `Constants.java` — reused constants.
-
-\## Key concepts & how the examples demonstrate them
-- Sliding window (strings): `LongestSubStringLengthWithoutDuplicate.java` uses two indices (left/right) and a character index map to expand/contract the window in O\(n\) time.
-- Two\-pointer technique: `MaxWaterInContainer.java` and `ThreeSum.java` show sorting + two pointers to reduce complexity from O\(n^2\) naive to O\(n^2\) optimized for pair searches.
-- Concurrency primitives: `BlockingQueueExample.java` demonstrates safe producer/consumer patterns, while `CompletableFuteureExample.java` shows chaining async tasks with `thenApply` / `thenAccept`.
-- Design patterns: each pattern package contains a minimal, self-contained example illustrating intent, participants, and typical usage. For example, `StrategyDemo.java` shows runtime selection of `PaymentStrategy` without changing client code.
-
-\## How to run specific examples quickly
-- In IntelliJ IDEA: open the class (for example `src/main/java/com/practice/core/stringOpsProblem/StringCoreExamples.java`) and run its `main` method.
-- From command line (single class execution):
-    - Compile and run via Maven exec plugin (add plugin or run `mvn -q -Dexec.mainClass="com.practice.core.stringOpsProblem.StringCoreExamples" exec:java`).
-- For Spring Boot app: run `PracticeApplication` from the IDE or use `mvn spring-boot:run`.
-
-\## Suggestions for extending repository
-- Add unit tests under `src/test/java` for each algorithm class (use JUnit 5).
-- Add README snippets for each package showing example inputs/outputs.
-- Add boundary tests and complexity notes in algorithm classes.
-
-\## Notes
-- Files with `Example` or `Demo` in the name are runnable samples with `main`.
-- The code is intentionally small and didactic; refactor and add tests when converting examples into production code.
-
-\## License / Contributing
+## License / Contributing
 - Intended for personal practice. Contributions welcome: add clear examples, comments, and unit tests.
