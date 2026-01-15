@@ -32,7 +32,7 @@ public class StreamPractice {
         // Given a String, how do you find the character with the second-highest
         // frequency using Java 8 Streams?
         String s = "abbcccd";
-        System.out.println("second-highest frequency:"+ s.chars().mapToObj(c -> (char) c)
+        System.out.println("second-highest frequency:" + s.chars().mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).skip(1).findFirst().orElseThrow().getKey());
 
@@ -44,9 +44,19 @@ public class StreamPractice {
 
         // How do you sort a list of Employee objects by both name and salary using Java
         // 8?
-        System.out.println("list of Employee objects by both name and salary"+getEmpList().stream().sorted(
+        System.out.println("list of Employee objects by both name and salary" + getEmpList().stream().sorted(
                         Comparator.comparing(Employee::getName).thenComparing(Comparator.comparing(Employee::getSalary)))
                 .toList());
+
+        // How to group by department and top salaried employee in each department ordered by name descending order and department by ascending order using Java 8 Streams?
+        getEmpList().stream().collect(Collectors.groupingBy(Employee::getDepartment,
+                        Collectors.collectingAndThen(
+                                Collectors.maxBy(Comparator.comparing(Employee::getSalary)),
+                                Optional::get)))
+                .entrySet().stream()
+                .sorted(Map.Entry.<String, Employee>comparingByKey()
+                        .thenComparing(e -> e.getValue().getName(), Comparator.reverseOrder()))
+                .forEach(e -> System.out.println("Department: " + e.getKey() + ", Employee: " + e.getValue().getName()));
 
         // Given a list of integers, how do you separate the elements into two lists —
         // one containing duplicates and the other containing unique elements using Java
@@ -94,15 +104,15 @@ public class StreamPractice {
         }
 
         String str = "automation";
-        System.out.println(str.chars().mapToObj(c -> String.valueOf((char)c)).distinct().collect(Collectors.joining("")));
+        System.out.println(str.chars().mapToObj(c -> String.valueOf((char) c)).distinct().collect(Collectors.joining("")));
 
         StringBuilder sb = new StringBuilder();
-        for(int i =s.length()-1; i>=0;i--) {
+        for (int i = s.length() - 1; i >= 0; i--) {
             sb.append(str.charAt(i));
         }
-        System.out.println(sb.toString());
+        System.out.println(sb);
         String vowels = "AEIOUaeiou";
-        System.out.println(str.chars().mapToObj(c -> String.valueOf((char)c)).filter(c-> vowels.contains(c)).count());
+        System.out.println(str.chars().mapToObj(c -> String.valueOf((char) c)).filter(c -> vowels.contains(c)).count());
     }
 
     // Group employees by gender and department
