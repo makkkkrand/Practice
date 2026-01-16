@@ -58,6 +58,13 @@ public class StreamPractice {
                         .thenComparing(e -> e.getValue().getName(), Comparator.reverseOrder()))
                 .forEach(e -> System.out.println("Department: " + e.getKey() + ", Employee: " + e.getValue().getName()));
 
+        //Grouping employees by department and then by gender, and calculating average salary.
+        Map<String, Map<String, Double>> avgSalaryByDeptAndGender = getEmpList().stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment,
+                        Collectors.groupingBy(Employee::getGender,
+                                Collectors.averagingDouble(Employee::getSalary))));
+        System.out.println("Average Salary by Department and Gender: " + avgSalaryByDeptAndGender);
+
         // Given a list of integers, how do you separate the elements into two lists —
         // one containing duplicates and the other containing unique elements using Java
         // 8?
